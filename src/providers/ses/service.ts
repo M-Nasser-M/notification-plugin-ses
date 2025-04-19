@@ -1,9 +1,6 @@
 import { AbstractNotificationProviderService } from "@medusajs/framework/utils";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import type {
-  ProviderSendNotificationDTO,
-  ProviderSendNotificationResultsDTO,
-} from "@medusajs/framework/types";
+import type { NotificationTypes } from "@medusajs/framework/types";
 
 interface Options {
   SES_ACCESS_KEY_ID: string;
@@ -58,9 +55,9 @@ class SESNotificationProviderService extends AbstractNotificationProviderService
     return options;
   }
 
-  async sendNotification(
-    notification: ProviderSendNotificationDTO
-  ): Promise<ProviderSendNotificationResultsDTO> {
+  async send(
+    notification: NotificationTypes.ProviderSendNotificationDTO
+  ): Promise<NotificationTypes.ProviderSendNotificationResultsDTO> {
     try {
       const command = new SendEmailCommand({
         Source: this.options_.SES_MAIL_FROM,
