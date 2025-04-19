@@ -5,13 +5,13 @@ import type {
   ProviderSendNotificationResultsDTO,
 } from "@medusajs/framework/types";
 
-type Options = {
+interface Options {
   SES_ACCESS_KEY_ID: string;
   SES_SECRET_ACCESS_KEY: string;
   SES_REGION: string;
   SES_MAIL_FROM: string;
-  SES_DEFAULT_SUBJECT: string;
-};
+  SES_DEFAULT_SUBJECT?: string;
+}
 
 class SESNotificationProviderService extends AbstractNotificationProviderService {
   static identifier = "notification-ses";
