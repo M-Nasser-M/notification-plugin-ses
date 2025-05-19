@@ -26,7 +26,8 @@
 	"scripts": {
 		"build": "medusa plugin:build",
 		"dev": "medusa plugin:develop",
-		"prepublishOnly": "medusa plugin:build"
+		"prepublishOnly": "medusa plugin:build",
+		"publish": "bun publish"
 	},
 	"devDependencies": {
 		"@medusajs/admin-sdk": "^2.7.0",
